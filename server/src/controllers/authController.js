@@ -5,7 +5,7 @@ export const authController = {
     try {
       const { name, email, password, confirmPassword } = req.body;
 
-      if (password !== confirmPassword) {
+      if (confirmPassword && password !== confirmPassword) {
         return res.status(400).json({ message: "Passwords do not match" });
       }
 
